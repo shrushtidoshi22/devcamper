@@ -213,7 +213,7 @@ DevCamper provides a comprehensive set of features designed to help users discov
 #### 3.1.2 Bootcamp Listings & Profiles
 
 - **Comprehensive Bootcamp Profiles** – Each bootcamp has a dedicated page with details such as syllabus, fees, duration, success stories, and hiring partners.
-- **Verified Reviews & Ratings** – Users can leave detailed reviews with ratings based on curriculum, instructors, job placement, and overall experience.
+- **Verified Reviews & Ratings** – Users can leave detailed reviews with ratings based on curriculum, Publishers, job placement, and overall experience.
 - **Alumni Insights** – Insights from past graduates about their job search and career progression.
   **Note**: The alumni insights feature will be available in the next release.
 
@@ -225,7 +225,7 @@ DevCamper provides a comprehensive set of features designed to help users discov
 
 #### 3.1.4 Community & Engagement (Future Release)
 
-- **Discussion Forums** – Bootcamp-specific discussions where users, alumni, and instructors can interact.
+- **Discussion Forums** – Bootcamp-specific discussions where users, alumni, and Publishers can interact.
 - **Q&A Section** – Users can ask questions and receive answers from bootcamp representatives and alumni.
 - **Networking Opportunities** – Users can connect with alumni, mentors, and potential employers.
 
@@ -652,10 +652,13 @@ The DevCamper platform should have a well-defined navigation structure to ensure
   - Home
   - Browse Bootcamps
   - Login/Sign Up
-- **Sidebar (For Dashboard Users – Admins & Instructors)**
+- **Sidebar (For Dashboard Users – Admins & Publishers)**
+  - Accounts
   - My Bootcamps
   - My Courses
   - User Registrations
+  - Payments and Report
+  - reviews
 
 #### 6.2.2 User Flow Examples
 
@@ -663,7 +666,10 @@ The DevCamper platform should have a well-defined navigation structure to ensure
    - User lands on homepage → Clicks Sign Up → Fills registration form → Receives email verification → Logs in → Browses bootcamps → Enrolls in a course.
 2. **Publisher Adding a Course**
 
-   - Instructor logs in → Navigates to Dashboard → Clicks Create Course → Fills course details → Uploads content → Publishes course → Course appears under the bootcamp listing.
+   - Publisher logs in → Navigates to Dashboard → Clicks Create Course → Fills course details → Uploads content → Publishes course → Course appears under the bootcamp listing.
+
+   - Publisher logs in → Navigates to Dashboard → Clicks Create Bootcamp → Fills bootcamp details → Uploads images → Submits the bootcamp → Bootcamp appears under the bootcamp listing.
+   
 
 3. **User Enrolling in a Course**
    - User browses available bootcamps → Clicks on a bootcamp → Views available courses → Selects a course → Clicks "Enroll" → Completes payment (if applicable) → Gains course access.
@@ -710,7 +716,7 @@ To enable email-based notifications for user verification, password resets, and 
 - **SMTP (Mailgun/Postmark as alternatives)**: Provides email delivery options for improved reliability.
 - **Implementation Details**:
   - Upon signup, users receive a verification email.
-  - Instructors are notified when a user enrolls in their course.
+  - Publishers are notified when a user enrolls in their course.
 
 ### 7.2 Authentication
 
@@ -722,7 +728,7 @@ For API-based authentication and session management:
 - **Token Expiry & Refresh**: Tokens expire in 30 days, requiring reauthentication or refresh mechanisms.
 - **Implementation Details**:
   - JWT secret keys are stored in environment variables.
-  - Role-based access control (RBAC) is enforced using JWT claims (e.g., user, instructor, admin).
+  - Role-based access control (RBAC) is enforced using JWT claims (e.g., user, Publisher, admin).
 
 ---
 
@@ -753,7 +759,7 @@ DevCamper will undergo different levels of testing to verify functionality, inte
   - Supertest for API testing in Node.js.
   - Cypress for end-to-end UI testing.
 - **Example**:
-  - Verify that a payment transaction updates both the user’s enrollment status and the instructor’s earnings.
+  - Verify that a payment transaction updates both the user’s enrollment status and the Publisher’s earnings.
 
 #### 8.1.3 UI/UX Testing
 
@@ -841,7 +847,7 @@ Every product faces potential risks, and DevCamper is no exception. Identifying 
 
 - **Data Breaches**: Unauthorized access to personal and payment data could lead to legal and reputational damage.
 - **Account Hijacking**: Weak authentication mechanisms might allow attackers to take over user accounts.
-- **Malicious Content**: Users or instructors could upload harmful or plagiarized content.
+- **Malicious Content**: Users or Publishers could upload harmful or plagiarized content.
 
 #### 9.1.4 Market Risks
 
@@ -867,7 +873,7 @@ Every product faces potential risks, and DevCamper is no exception. Identifying 
 #### 9.2.3 Security Mitigation
 
 - **Data Encryption**: Ensure all sensitive user data is encrypted in transit and at rest.
-- **Multi-Factor Authentication (MFA)**: Require MFA for instructors and administrators to prevent unauthorized access.
+- **Multi-Factor Authentication (MFA)**: Require MFA for Publishers and administrators to prevent unauthorized access.
 - **Content Moderation**: Use automated tools and manual review processes to detect and remove harmful content.
 
 #### 9.2.4 Market Mitigation
